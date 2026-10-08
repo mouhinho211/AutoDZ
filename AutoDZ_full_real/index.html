@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>AutoDZ — سيارات الجزائر</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="topbar">
+  <div class="brand">Auto<span>DZ</span></div>
+  <div id="accountArea"></div>
+</header>
+
+<main>
+<section id="authView" class="view">
+  <div class="hero">
+    <div class="badge">🇩🇿 سوق السيارات في الجزائر</div>
+    <h1>سيارتك القادمة تبدأ من هنا.</h1>
+    <p>بيع سيارتك أو لقى السيارة اللي تناسبك من إعلانات حقيقية.</p>
+  </div>
+  <div class="auth-card">
+    <div class="tabs">
+      <button id="signupTab" class="tab active">إنشاء حساب</button>
+      <button id="loginTab" class="tab">تسجيل الدخول</button>
+    </div>
+    <form id="authForm">
+      <div id="authNameWrap" class="field"><label>الاسم الكامل</label><input id="authName" type="text" autocomplete="name"></div>
+      <div class="field"><label>البريد الإلكتروني</label><input id="authEmail" type="email" required autocomplete="email"></div>
+      <div class="field"><label>كلمة المرور</label><input id="authPassword" type="password" minlength="6" required autocomplete="current-password"></div>
+      <button id="authSubmit" class="btn primary" type="submit">إنشاء حساب</button>
+      <p id="authMsg" class="msg"></p>
+    </form>
+  </div>
+</section>
+
+<section id="homeView" class="view hidden">
+  <div class="hero compact"><div class="badge">AutoDZ</div><h1>واش حاب تدير اليوم؟</h1><p>اختار البيع أو الشراء.</p></div>
+  <div class="choice-grid">
+    <button class="choice sell" data-go="sell"><span>🚗</span><b>حاب تبيع؟</b><small>انشر سيارتك للناس</small></button>
+    <button class="choice buy" data-go="buy"><span>🔎</span><b>حاب تشري؟</b><small>شوف السيارات المنشورة</small></button>
+  </div>
+</section>
+
+<section id="sellView" class="view hidden">
+  <div class="section-head"><button class="back" data-go="home">رجوع</button><div><h2>حاب تبيع 🚗</h2><p>عمر معلومات سيارتك وانشرها.</p></div></div>
+  <form id="carForm" class="form-card">
+    <div class="field"><label>صور السيارة</label><input id="carImages" type="file" accept="image/*" multiple required><small>تقدر تختار حتى 8 صور.</small></div>
+    <div class="two">
+      <div class="field"><label>الماركة</label><input id="brand" required placeholder="Peugeot"></div>
+      <div class="field"><label>الموديل</label><input id="model" required placeholder="208"></div>
+    </div>
+    <div class="two">
+      <div class="field"><label>السنة</label><input id="year" type="number" min="1950" max="2100" required></div>
+      <div class="field"><label>السعر (مليون)</label><input id="price" type="number" min="0" step="0.01" required placeholder="320"></div>
+    </div>
+    <div class="two">
+      <div class="field"><label>الكيلومترات</label><input id="km" type="number" min="0" required placeholder="120000"></div>
+      <div class="field"><label>الولاية</label><select id="wilaya" required><option value="">اختر الولاية</option><option>عنابة</option><option>الجزائر</option><option>وهران</option><option>قسنطينة</option><option>سطيف</option><option>باتنة</option><option>سكيكدة</option><option>قالمة</option><option>جيجل</option><option>البليدة</option><option>بجاية</option><option>تيزي وزو</option><option>تلمسان</option><option>بسكرة</option><option>الوادي</option><option>أخرى</option></select></div>
+    </div>
+    <div class="two">
+      <div class="field"><label>الوقود</label><select id="fuel"><option>Essence</option><option>Diesel</option><option>GPL</option><option>Hybride</option><option>Electrique</option></select></div>
+      <div class="field"><label>علبة السرعة</label><select id="gearbox"><option>Manuelle</option><option>Automatique</option><option>Robotisée</option></select></div>
+    </div>
+    <div class="field"><label>رقم الهاتف</label><input id="phone" type="tel" required placeholder="05xxxxxxxx"></div>
+    <div class="field"><label>فيسبوك / إنستغرام (اختياري)</label><input id="social" placeholder="@username أو رابط"></div>
+    <div class="field"><label>وصف السيارة</label><textarea id="description" rows="4" placeholder="مثلا: نظيفة، ما فيهاش صبغة..."></textarea></div>
+    <button id="publishBtn" class="btn primary" type="submit">نشر السيارة</button>
+    <p id="carMsg" class="msg"></p>
+  </form>
+</section>
+
+<section id="buyView" class="view hidden">
+  <div class="section-head"><button class="back" data-go="home">رجوع</button><div><h2>حاب تشري 🔎</h2><p>السيارات المنشورة من المستخدمين.</p></div></div>
+  <div class="filters"><input id="searchInput" placeholder="ابحث بالماركة أو الموديل..."><select id="filterWilaya"><option value="">كل الولايات</option><option>عنابة</option><option>الجزائر</option><option>وهران</option><option>قسنطينة</option><option>سطيف</option><option>باتنة</option><option>سكيكدة</option><option>قالمة</option><option>جيجل</option><option>البليدة</option><option>بجاية</option><option>تيزي وزو</option><option>تلمسان</option><option>بسكرة</option><option>الوادي</option><option>أخرى</option></select></div>
+  <div id="carsGrid" class="cars-grid"></div><p id="carsMsg" class="msg"></p>
+</section>
+</main>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="script.js"></script>
+</body>
+</html>
